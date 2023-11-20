@@ -8,7 +8,7 @@ int GameState::evilPumpkinsCount = 0;
 int GameState::maxEvilPumpkins = 10;
 float GameState::objectSize = 50.f;
 bool GameState::gameOverStatus = false;
-sf::Vector2f GameState::wallSize = sf::Vector2f(100.f, 20.f);
+sf::Vector2f GameState::waterSize = sf::Vector2f(100.f, 20.f);
 
 int GameState::getScreenWidth()
 {

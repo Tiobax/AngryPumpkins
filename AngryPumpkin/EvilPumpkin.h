@@ -1,13 +1,14 @@
 #pragma once
 
-#ifndef EvilPumpkin_h
-#define EvilPumpkin_h
-
 #include "MovableGameObject.h"
 #include <ctime>
 
 class EvilPumpkin : public MovableGameObject
 {
+public:
+	EvilPumpkin(sf::Vector2f _position);
+	void setTimeForChangeDirection();
+
 private:
 	float timeForChangeDirection;
 
@@ -17,10 +18,4 @@ private:
 	void handlingBorderCollision() override;
 	void increaseSpeed();
 	void setDirection();
-
-public:
-	EvilPumpkin(sf::Vector2f _position);
-	void setTimeForChangeDirection();
 };
-
-#endif

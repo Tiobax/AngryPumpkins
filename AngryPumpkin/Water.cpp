@@ -1,8 +1,8 @@
 #include "Water.h"
 
-void Water::loadtexture(WaterType walltype)
+void Water::loadTexture(WaterType waterType)
 {
-	if (walltype == WaterType::LONG) {
+	if (waterType == WaterType::LONG) {
 		assert(texture.loadFromFile(RESOURCES_PATH + "LongWall.png"));
 	}
 	else
@@ -11,10 +11,10 @@ void Water::loadtexture(WaterType walltype)
 	}
 }
 
-void Water::initSize(WaterType walltype)
+void Water::initSize(WaterType waterType)
 {
 
-	if (walltype == WaterType::LONG) {
+	if (waterType == WaterType::LONG) {
 		size.x = GameState::getScreenWidth() * 0.25f;
 		size.y = GameState::getScreenHeight() * 0.05f;
 	}
@@ -24,11 +24,11 @@ void Water::initSize(WaterType walltype)
 	}
 }
 
-Water::Water(WaterType walltype, sf::Vector2f _position)
+Water::Water(WaterType waterType, sf::Vector2f _position)
 {
-	loadtexture(walltype);
+	loadTexture(waterType);
 	sprite.setTexture(texture);
-	initSize(walltype);
+	initSize(waterType);
 	setSpriteSize();
 	setSpriteRelativeOrigin();
 	position = _position;

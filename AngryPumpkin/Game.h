@@ -1,13 +1,26 @@
 #pragma once
 
-#ifndef Game_h
-#define Game_h
-
 #include "MovableGameObject.h"
 #include "State.h"
 
 class Game
 {
+public:
+	Game();
+	void initMenu();
+	void updateMenu(sf::RenderWindow& window);
+	void drawMenu(sf::RenderWindow& window);
+	void initGame();
+	void updateGame();
+	void drawGame(sf::RenderWindow& window);
+	void initGameOver();
+	void updateGameOver();
+	void drawGameOver(sf::RenderWindow& window);
+	State getState();
+	std::multimap<std::string, std::shared_ptr<MovableGameObject>> getMovableGameObjectsMap();
+	std::multimap<std::string, std::shared_ptr<GameObject>> getStaticGameObjectsMap();
+	sf::Vector2f generateNewPosition();
+
 private:
 	State state;
 	sf::Font font;
@@ -33,24 +46,6 @@ private:
 	sf::Sound gameOverSound;
 
 	bool isCollision(sf::Vector2f newPosition);
-
-public:
-	Game();
-	void initMenu();
-	void updateMenu(sf::RenderWindow& window);
-	void drawMenu(sf::RenderWindow& window);
-	void initGame();
-	void updateGame();
-	void drawGame(sf::RenderWindow& window);
-	void initGameOver();
-	void updateGameOver();
-	void drawGameOver(sf::RenderWindow& window);
-	State getState();
-	std::multimap<std::string, std::shared_ptr<MovableGameObject>> getMovableGameObjectsMap();
-	std::multimap<std::string, std::shared_ptr<GameObject>> getStaticGameObjectsMap();
-	sf::Vector2f generateNewPosition();
 };
-
-#endif
 
 

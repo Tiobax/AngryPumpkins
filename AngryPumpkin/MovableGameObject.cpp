@@ -70,9 +70,9 @@ void MovableGameObject::updateMovableObject(float deltaTime, Game& game)
 	for (auto& it : game.getStaticGameObjectsMap()) {
 		if (it.first == typeid(Pumpkin).name())
 		{
-			float dx = position.x - it.second->getPosition().x;
-			float dy = position.y - it.second->getPosition().y;
-			float distance = sqrt(dx * dx + dy * dy);
+			const float dx = position.x - it.second->getPosition().x;
+			const float dy = position.y - it.second->getPosition().y;
+			const float distance = sqrt(dx * dx + dy * dy);
 			if (distance < (size.x + it.second->getSize().x) * 0.5f)
 			{
 				handlingPumpkinCollision();
@@ -82,10 +82,10 @@ void MovableGameObject::updateMovableObject(float deltaTime, Game& game)
 		}
 		if (it.first == typeid(Water).name())
 		{
-			sf::Vector2f wallPosition = it.second->getPosition();
-			float halfWallSize_x = it.second->getSize().x * 0.5f;
-			float halfWallSize_y = it.second->getSize().y * 0.5f;
-			if (abs(wallPosition.y - position.y) <= halfWallSize_y + size.y * 0.5f && abs(wallPosition.x - position.x) <= halfWallSize_x + size.x * 0.5f)
+			const sf::Vector2f waterPosition = it.second->getPosition();
+			const float halfWaterSizeX = it.second->getSize().x * 0.5f;
+			const float halfWaterSizeY = it.second->getSize().y * 0.5f;
+			if (abs(waterPosition.y - position.y) <= halfWaterSizeY + size.y * 0.5f && abs(waterPosition.x - position.x) <= halfWaterSizeX + size.x * 0.5f)
 			{
 				position = sprite.getPosition();
 				handlingWallCollision();
@@ -93,13 +93,13 @@ void MovableGameObject::updateMovableObject(float deltaTime, Game& game)
 		}
 	}
 
-	auto player = game.getMovableGameObjectsMap().find(typeid(Player).name())->second;
+	const auto player = game.getMovableGameObjectsMap().find(typeid(Player).name())->second;
 	for (auto& it : game.getMovableGameObjectsMap()) {
 		if (it.first == typeid(EvilPumpkin).name())
 		{
-			float dx = player.get()->getPosition().x - it.second->getPosition().x;
-			float dy = player.get()->getPosition().y - it.second->getPosition().y;
-			float distance = sqrt(dx * dx + dy * dy);
+			const float dx = player.get()->getPosition().x - it.second->getPosition().x;
+			const float dy = player.get()->getPosition().y - it.second->getPosition().y;
+			const float distance = sqrt(dx * dx + dy * dy);
 			if (distance < (size.x + it.second->getSize().x) * 0.5f)
 			{
 				GameState::setGameOverStatus(true);
