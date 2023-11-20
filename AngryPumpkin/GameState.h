@@ -8,17 +8,6 @@ const std::string SCORE_TEXT = "Score: ";
 
 class GameState
 {
-private:
-	static int screenWidth;
-	static int screenHeight;
-	static int upBoard;
-	static int gameScore;
-	static int evilPumpkinsCount;
-	static int maxEvilPumpkins;
-	static float objectSize;
-	static sf::Vector2f wallSize;
-	static bool gameOverStatus;
-
 public:
 	static int getScreenWidth();
 	static float getHalfGameScreenWidth();
@@ -35,4 +24,15 @@ public:
 	static int getUpBoard();
 	static bool getGameOverStatus();
 	static bool setGameOverStatus(bool status);
+
+private:
+	static int screenWidth;
+	static int screenHeight;
+	static int upBoard;
+	static int gameScore;
+	static int evilPumpkinsCount;
+	static int maxEvilPumpkins;
+	static float objectSize;
+	static sf::Vector2f wallSize;
+	static bool gameOverStatus;
 };

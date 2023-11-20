@@ -2,7 +2,7 @@
 
 void EvilPumpkin::changeDirection()
 {
-	int currentTime = clock() / CLOCKS_PER_SEC;
+	const int currentTime = clock() / CLOCKS_PER_SEC;
 	if (timeForChangeDirection - currentTime < 0)
 	{
 		setDirection();
@@ -32,7 +32,7 @@ void EvilPumpkin::increaseSpeed()
 
 void EvilPumpkin::setDirection()
 {
-	int randomDirection = rand() % 2;
+	const int randomDirection = rand() % 2;
 	if (direction == Direction::UP || direction == Direction::DOWN)
 	{
 		if (position.x - GameState::getObjectSize() < 0)
@@ -84,7 +84,7 @@ EvilPumpkin::EvilPumpkin(sf::Vector2f _position)
 
 void EvilPumpkin::setTimeForChangeDirection()
 {
-	int nextDirectionTime = 1 + rand() % 2;
-	int currentTime = clock() / CLOCKS_PER_SEC;
+	const int nextDirectionTime = 1 + rand() % 2;
+	const int currentTime = clock() / CLOCKS_PER_SEC;
 	timeForChangeDirection = (float)(currentTime + nextDirectionTime);
 }

@@ -2,14 +2,14 @@
 
 void GameObject::setSpriteSize()
 {
-	sf::FloatRect spriteRect = sprite.getLocalBounds();
-	sf::Vector2f scale = { size.x / spriteRect.width, size.y / spriteRect.height };
+	const sf::FloatRect spriteRect = sprite.getLocalBounds();
+	const sf::Vector2f scale = { size.x / spriteRect.width, size.y / spriteRect.height };
 	sprite.setScale(scale);
 }
 
 void GameObject::setSpriteRelativeOrigin()
 {
-	sf::FloatRect spriteRect = sprite.getLocalBounds();
+	const sf::FloatRect spriteRect = sprite.getLocalBounds();
 	sprite.setOrigin(spriteRect.width * 0.5f, spriteRect.height * 0.5f);
 }
 

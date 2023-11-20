@@ -1,6 +1,6 @@
 #include "Water.h"
 
-void Water::loadtexture(WaterType walltype)
+void Water::loadTexture(WaterType walltype)
 {
 	if (walltype == WaterType::LONG) {
 		assert(texture.loadFromFile(RESOURCES_PATH + "LongWall.png"));
@@ -26,7 +26,7 @@ void Water::initSize(WaterType walltype)
 
 Water::Water(WaterType walltype, sf::Vector2f _position)
 {
-	loadtexture(walltype);
+	loadTexture(walltype);
 	sprite.setTexture(texture);
 	initSize(walltype);
 	setSpriteSize();
