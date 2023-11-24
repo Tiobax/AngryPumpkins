@@ -82,7 +82,7 @@ SettingsState::SettingsState()
 	accelerationPlayerTrueShape.setPosition(GameSettings::getScreenWidth() * 0.05f, GameSettings::getScreenHeight() * 0.4f);
 
 	numberOfPumpkinsForWinText.setFont(font);
-	numberOfPumpkinsForWinText.setString("NUMBER OF APPLES FOR WIN:");
+	numberOfPumpkinsForWinText.setString("NUMBER OF PUMPKINS FOR WIN:");
 	numberOfPumpkinsForWinText.setCharacterSize(50);
 	const sf::FloatRect rectNumberOfApplesForWinText = numberOfPumpkinsForWinText.getLocalBounds();
 	numberOfPumpkinsForWinText.setOrigin(rectNumberOfApplesForWinText.left, rectNumberOfApplesForWinText.top);
