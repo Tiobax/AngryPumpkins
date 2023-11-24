@@ -2,7 +2,7 @@
 
 Pumpkin::Pumpkin(sf::Vector2f _position)
 {
-	assert(texture.loadFromFile(RESOURCES_PATH + "Pumpkin.png"));
+	assert(texture.loadFromFile(GameSettings::getResourcesPath() + "Pumpkin.png"));
 	sprite.setTexture(texture);
 	initSize();
 	setSpriteSize();

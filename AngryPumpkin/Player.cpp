@@ -23,29 +23,36 @@ void Player::changeDirection()
 void Player::handlingPumpkinCollision()
 {
 	eatSound.play();
-	GameState::increaseGameScore();
+	GameSettings::increaseGameScore();
+	if (GameSettings::getNumberOfApplesForWinSetting() && GameSettings::isWin())
+	{
+		GameSettings::setWinStatus(true);
+	}
+	if (GameSettings::getAccelerationPlayerSetting()) {
+		increaseSpeed();
+	}
 }
 
 void Player::handlingWallCollision()
 {
-	GameState::setGameOverStatus(true);
+	GameSettings::setGameOverStatus(true);
 }
 
 void Player::handlingBorderCollision()
 {
-	GameState::setGameOverStatus(true);
+	GameSettings::setGameOverStatus(true);
 }
 
 Player::Player()
 {
-	assert(textureUp.loadFromFile(RESOURCES_PATH + "PlayerUp.png"));
-	assert(textureDown.loadFromFile(RESOURCES_PATH + "PlayerDown.png"));
-	assert(textureRight.loadFromFile(RESOURCES_PATH + "PlayerRight.png"));
-	assert(textureLeft.loadFromFile(RESOURCES_PATH + "PlayerLeft.png"));
+	assert(textureUp.loadFromFile(GameSettings::getResourcesPath() + "PlayerUp.png"));
+	assert(textureDown.loadFromFile(GameSettings::getResourcesPath() + "PlayerDown.png"));
+	assert(textureRight.loadFromFile(GameSettings::getResourcesPath() + "PlayerRight.png"));
+	assert(textureLeft.loadFromFile(GameSettings::getResourcesPath() + "PlayerLeft.png"));
 	setTextureForSprite();
 	initSize();
 	setSpriteSize();
 	setSpriteRelativeOrigin();
-	position = sf::Vector2f(GameState::getHalfGameScreenWidth(), GameState::getHalfGameScreenHeight());
+	position = sf::Vector2f(GameSettings::getHalfGameScreenWidth(), GameSettings::getHalfGameScreenHeight());
 	sprite.setPosition(position);
 }

@@ -16,6 +16,5 @@ private:
 	void handlingPumpkinCollision() override;
 	void handlingWallCollision() override;
 	void handlingBorderCollision() override;
-	void increaseSpeed();
 	void setDirection();
 };

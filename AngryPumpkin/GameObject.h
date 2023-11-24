@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "GameState.h"
+#include "GameSettings.h"
 #include <cassert>
 
 class GameObject

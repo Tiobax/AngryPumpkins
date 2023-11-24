@@ -7,7 +7,7 @@ class MovableGameObject : public GameObject
 {
 public:
 	MovableGameObject();
-	void updateMovableObject(float deltaTime, class Game& game);
+	void updateMovableObject(float deltaTime, class GameState& game);
 
 protected:
 	float speed;
@@ -19,6 +19,7 @@ protected:
 	sf::SoundBuffer eatSoundBuffer;
 	sf::Sound eatSound;
 
+	void increaseSpeed();
 	void setTextureForSprite();
 	bool calculateBoardCollision();
 	virtual void changeDirection() = 0;

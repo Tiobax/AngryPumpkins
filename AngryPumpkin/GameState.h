@@ -1,38 +1,24 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "BaseState.h"
+#include "MovableGameObject.h"
 
-const std::string RESOURCES_PATH = "Resources/";
-const int PUMPKIN_COUNT = 20;
-const float OBJECT_SPEED = 200.f;
-const std::string SCORE_TEXT = "Score: ";
-
-class GameState
+class GameState : public BaseState
 {
 public:
-	static int getScreenWidth();
-	static float getHalfGameScreenWidth();
-	static int getScreenHeight();
-	static float getHalfGameScreenHeight();
-	static void increaseGameScore();
-	static int getGameScore();
-	static void resetGameScore();
-	static void increaseEvilPumpkins();
-	static int getEvilPumpkins();
-	static void resetEvilPumpkins();
-	static int getMaxEvilPumpkins();
-	static float getObjectSize();
-	static int getUpBoard();
-	static bool getGameOverStatus();
-	static bool setGameOverStatus(bool status);
+	GameState();
+	void update(sf::RenderWindow& window, std::shared_ptr<BaseState>& gameState) override;
+	void draw(sf::RenderWindow& window) override;
+	std::multimap<std::string, std::shared_ptr<MovableGameObject>> getMovableGameObjectsMap();
+	std::multimap<std::string, std::shared_ptr<GameObject>> getStaticGameObjectsMap();
+	sf::Vector2f generateNewPosition();
 
-private:
-	static int screenWidth;
-	static int screenHeight;
-	static int upBoard;
-	static int gameScore;
-	static int evilPumpkinsCount;
-	static int maxEvilPumpkins;
-	static float objectSize;
-	static sf::Vector2f waterSize;
-	static bool gameOverStatus;
+protected:
+	std::multimap<std::string, std::shared_ptr<MovableGameObject>> movableGameObjectsMap;
+	std::multimap<std::string, std::shared_ptr<GameObject>> staticGameObjectsMap;
+	float lastTime;
+	sf::Clock gameClock;
+	sf::RectangleShape dividingLine;
+	sf::Text scoreText;
+
+	bool isCollision(sf::Vector2f newPosition);
 };

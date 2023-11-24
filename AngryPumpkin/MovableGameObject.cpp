@@ -3,7 +3,12 @@
 #include "Pumpkin.h"
 #include "EvilPumpkin.h"
 #include "Player.h"
-#include "Game.h"
+#include "GameState.h"
+
+void MovableGameObject::increaseSpeed()
+{
+	speed += GameSettings::getObjectsSpeed() * 0.1f;
+}
 
 void MovableGameObject::setTextureForSprite()
 {
@@ -26,8 +31,8 @@ void MovableGameObject::setTextureForSprite()
 
 bool MovableGameObject::calculateBoardCollision()
 {
-	if (position.x - size.x * 0.5f <= 0.f || position.x + size.x * 0.5f >= GameState::getScreenWidth() ||
-		position.y - size.y * 0.5f <= GameState::getUpBoard() || position.y + size.y * 0.5f >= GameState::getScreenHeight())
+	if (position.x - size.x * 0.5f <= 0.f || position.x + size.x * 0.5f >= GameSettings::getScreenWidth() ||
+		position.y - size.y * 0.5f <= GameSettings::getUpBoard() || position.y + size.y * 0.5f >= GameSettings::getScreenHeight())
 	{
 		return true;
 	}
@@ -37,13 +42,13 @@ bool MovableGameObject::calculateBoardCollision()
 MovableGameObject::MovableGameObject()
 {
 	direction = Direction(rand() % 4);
-	speed = OBJECT_SPEED;
-	assert(eatSoundBuffer.loadFromFile(RESOURCES_PATH + "Eat.wav"));
+	speed = GameSettings::getObjectsSpeed();
+	assert(eatSoundBuffer.loadFromFile(GameSettings::getResourcesPath() + "Eat.wav"));
 	eatSound.setBuffer(eatSoundBuffer);
 }
 
 
-void MovableGameObject::updateMovableObject(float deltaTime, Game& game)
+void MovableGameObject::updateMovableObject(float deltaTime, GameState& game)
 {
 	changeDirection();
 
@@ -102,7 +107,7 @@ void MovableGameObject::updateMovableObject(float deltaTime, Game& game)
 			const float distance = sqrt(dx * dx + dy * dy);
 			if (distance < (size.x + it.second->getSize().x) * 0.5f)
 			{
-				GameState::setGameOverStatus(true);
+				GameSettings::setGameOverStatus(true);
 			}
 		}
 	}

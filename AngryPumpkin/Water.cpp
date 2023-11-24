@@ -3,11 +3,11 @@
 void Water::loadTexture(WaterType waterType)
 {
 	if (waterType == WaterType::LONG) {
-		assert(texture.loadFromFile(RESOURCES_PATH + "LongWall.png"));
+		assert(texture.loadFromFile(GameSettings::getResourcesPath() + "LongWall.png"));
 	}
 	else
 	{
-		assert(texture.loadFromFile(RESOURCES_PATH + "Column.png"));
+		assert(texture.loadFromFile(GameSettings::getResourcesPath() + "Column.png"));
 	}
 }
 
@@ -15,12 +15,12 @@ void Water::initSize(WaterType waterType)
 {
 
 	if (waterType == WaterType::LONG) {
-		size.x = GameState::getScreenWidth() * 0.25f;
-		size.y = GameState::getScreenHeight() * 0.05f;
+		size.x = GameSettings::getScreenWidth() * 0.25f;
+		size.y = GameSettings::getScreenHeight() * 0.05f;
 	}
 	else
 	{
-		size.x = size.y = GameState::getScreenHeight() * 0.1f;
+		size.x = size.y = GameSettings::getScreenHeight() * 0.1f;
 	}
 }
 

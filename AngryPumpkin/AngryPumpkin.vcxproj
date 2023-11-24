@@ -158,28 +158,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseState.cpp" />
+    <ClCompile Include="CalculationCollisions.cpp" />
     <ClCompile Include="EvilPumpkin.cpp" />
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameOverState.cpp" />
+    <ClCompile Include="GameSettings.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStateFactory.cpp" />
+    <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="MovableGameObject.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pumpkin.cpp" />
+    <ClCompile Include="SettingsState.cpp" />
     <ClCompile Include="Water.cpp" />
+    <ClCompile Include="WinState.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CalculationCollisions.h" />
     <ClInclude Include="EvilPumpkin.h" />
-    <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameOverState.h" />
+    <ClInclude Include="GameSettings.h" />
     <ClInclude Include="Direction.h" />
+    <ClInclude Include="BaseState.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStateFactory.h" />
+    <ClInclude Include="MenuState.h" />
     <ClInclude Include="MovableGameObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Pumpkin.h" />
+    <ClInclude Include="SettingsState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Water.h" />
     <ClInclude Include="WaterType.h" />
+    <ClInclude Include="WinState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,6 +11,9 @@
     <Filter Include="Sources\Enums">
       <UniqueIdentifier>{e0e63466-70c4-44d8-9281-bb9d4a9f07b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\GameStates">
+      <UniqueIdentifier>{3e84786a-c1de-49a4-b400-5cba2a893676}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameMain.cpp">
@@ -28,10 +31,7 @@
     <ClCompile Include="Pumpkin.cpp">
       <Filter>Sources\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
+    <ClCompile Include="GameSettings.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="MovableGameObject.cpp">
@@ -40,9 +40,33 @@
     <ClCompile Include="Water.cpp">
       <Filter>Sources\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="CalculationCollisions.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseState.cpp">
+      <Filter>Sources\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverState.cpp">
+      <Filter>Sources\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateFactory.cpp">
+      <Filter>Sources\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="WinState.cpp">
+      <Filter>Sources\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuState.cpp">
+      <Filter>Sources\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsState.cpp">
+      <Filter>Sources\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Sources\GameStates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameState.h">
+    <ClInclude Include="GameSettings.h">
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="EvilPumpkin.h">
@@ -56,9 +80,6 @@
     </ClInclude>
     <ClInclude Include="Pumpkin.h">
       <Filter>Sources\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="MovableGameObject.h">
       <Filter>Sources\GameObjects</Filter>
@@ -74,6 +95,30 @@
     </ClInclude>
     <ClInclude Include="WaterType.h">
       <Filter>Sources\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculationCollisions.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseState.h">
+      <Filter>Sources\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverState.h">
+      <Filter>Sources\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateFactory.h">
+      <Filter>Sources\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="WinState.h">
+      <Filter>Sources\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuState.h">
+      <Filter>Sources\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsState.h">
+      <Filter>Sources\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Sources\GameStates</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

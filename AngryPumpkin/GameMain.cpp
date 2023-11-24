@@ -1,15 +1,16 @@
 ﻿// ©2023. All rights reserved.
 // Authored by Evgeni Buko
 
-#include "GameState.h"
-#include "Game.h"
+#include "GameSettings.h"
+#include "BaseState.h"
+#include "GameStateFactory.h"
 
 int main()
 {
 	srand((int)time(nullptr));
-	sf::RenderWindow window(sf::VideoMode(GameState::getScreenWidth(), GameState::getScreenHeight()), "AngryPampkins");
+	std::shared_ptr<BaseState> gameState = GameStateFactory::createGameState(State::MENU);
+	sf::RenderWindow window(sf::VideoMode(GameSettings::getScreenWidth(), GameSettings::getScreenHeight()), "AngryPampkins");
 	sf::Event event;
-	Game game;
 
 	while (window.isOpen())
 	{
@@ -21,21 +22,8 @@ int main()
 		}
 
 		window.clear();
-		switch (game.getState())
-		{
-		case State::MENU:
-			game.updateMenu(window);
-			game.drawMenu(window);
-			break;
-		case State::GAME:
-			game.updateGame();
-			game.drawGame(window);
-			break;
-		case State::GAME_OVER:
-			game.updateGameOver();
-			game.drawGameOver(window);
-			break;
-		}
+		gameState.get()->update(window, gameState);
+		gameState.get()->draw(window);
 		window.display();
 	}
 

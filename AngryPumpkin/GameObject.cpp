@@ -15,7 +15,7 @@ void GameObject::setSpriteRelativeOrigin()
 
 void GameObject::initSize()
 {
-	size = sf::Vector2f(GameState::getObjectSize(), GameState::getObjectSize());
+	size = sf::Vector2f(GameSettings::getObjectsSize(), GameSettings::getObjectsSize());
 }
 
 void GameObject::update()

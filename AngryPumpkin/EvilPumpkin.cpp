@@ -25,21 +25,16 @@ void EvilPumpkin::handlingBorderCollision()
 	setDirection();
 }
 
-void EvilPumpkin::increaseSpeed()
-{
-	speed += OBJECT_SPEED * 0.1f;
-}
-
 void EvilPumpkin::setDirection()
 {
 	const int randomDirection = rand() % 2;
 	if (direction == Direction::UP || direction == Direction::DOWN)
 	{
-		if (position.x - GameState::getObjectSize() < 0)
+		if (position.x - GameSettings::getObjectsSize() < 0)
 		{
 			direction = Direction::RIGHT;
 		}
-		else if (position.x + GameState::getObjectSize() > GameState::getScreenWidth())
+		else if (position.x + GameSettings::getObjectsSize() > GameSettings::getScreenWidth())
 		{
 			direction = Direction::LEFT;
 		}
@@ -51,11 +46,11 @@ void EvilPumpkin::setDirection()
 	}
 	else
 	{
-		if (position.y - GameState::getObjectSize() < GameState::getUpBoard())
+		if (position.y - GameSettings::getObjectsSize() < GameSettings::getUpBoard())
 		{
 			direction = Direction::DOWN;
 		}
-		else if (position.y + GameState::getObjectSize() > GameState::getScreenHeight())
+		else if (position.y + GameSettings::getObjectsSize() > GameSettings::getScreenHeight())
 		{
 			direction = Direction::UP;
 		}
@@ -69,10 +64,10 @@ void EvilPumpkin::setDirection()
 
 EvilPumpkin::EvilPumpkin(sf::Vector2f _position)
 {
-	assert(textureUp.loadFromFile(RESOURCES_PATH + "PumpkinUp.png"));
-	assert(textureDown.loadFromFile(RESOURCES_PATH + "PumpkinDown.png"));
-	assert(textureRight.loadFromFile(RESOURCES_PATH + "PumpkinRight.png"));
-	assert(textureLeft.loadFromFile(RESOURCES_PATH + "PumpkinLeft.png"));
+	assert(textureUp.loadFromFile(GameSettings::getResourcesPath() + "PumpkinUp.png"));
+	assert(textureDown.loadFromFile(GameSettings::getResourcesPath() + "PumpkinDown.png"));
+	assert(textureRight.loadFromFile(GameSettings::getResourcesPath() + "PumpkinRight.png"));
+	assert(textureLeft.loadFromFile(GameSettings::getResourcesPath() + "PumpkinLeft.png"));
 	setTextureForSprite();
 	setTimeForChangeDirection();
 	initSize();
