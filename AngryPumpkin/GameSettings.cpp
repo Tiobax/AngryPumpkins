@@ -1,4 +1,5 @@
 #include "GameSettings.h"
+#include "GameSettingsBits.h"
 
 bool GameSettings::gameOverStatus = false;
 bool GameSettings::winStatus = false;
@@ -110,12 +111,12 @@ void GameSettings::setWinStatus(bool status)
 
 bool GameSettings::getNumberOfPumpkinsSetting()
 {
-	return gameSettings & 1 ? true : false;
+	return gameSettings & static_cast<int>(GameSettingsBits::NUMBER_OF_PUMPKINS);
 }
 
 void GameSettings::changeNumberOfPumpkinsSetting()
 {
-	gameSettings = gameSettings ^ 1;
+	gameSettings = gameSettings ^ static_cast<int>(GameSettingsBits::NUMBER_OF_PUMPKINS);
 }
 
 int GameSettings::generateNumberOfPumpkins()
@@ -125,22 +126,22 @@ int GameSettings::generateNumberOfPumpkins()
 
 bool GameSettings::getAccelerationPlayerSetting()
 {
-	return gameSettings & (1 << 1) ? true : false;
+	return gameSettings & static_cast<int>(GameSettingsBits::ACCELERATION);
 }
 
 void GameSettings::changeAccelerationPlayersSetting()
 {
-	gameSettings = gameSettings ^ (1 << 1);
+	gameSettings = gameSettings ^ static_cast<int>(GameSettingsBits::ACCELERATION);
 }
 
 bool GameSettings::getNumberOfApplesForWinSetting()
 {
-	return gameSettings & (1 << 2) ? true : false;
+	return gameSettings & static_cast<int>(GameSettingsBits::NUMBER_OF_PUMPKINS_FOR_WIN);
 }
 
 void GameSettings::changeNumberOfApplesForWinSetting()
 {
-	gameSettings = gameSettings ^ (1 << 2);
+	gameSettings = gameSettings ^ static_cast<int>(GameSettingsBits::NUMBER_OF_PUMPKINS_FOR_WIN);
 }
 
 bool GameSettings::isWin()

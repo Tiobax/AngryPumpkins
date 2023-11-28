@@ -120,5 +120,8 @@
     <ClInclude Include="GameState.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
+    <ClInclude Include="GameSettingsBits.h">
+      <Filter>Sources\Enums</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

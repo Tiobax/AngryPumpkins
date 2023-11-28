@@ -185,6 +185,7 @@
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateFactory.h" />
+    <ClInclude Include="GameSettingsBits.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="MovableGameObject.h" />
     <ClInclude Include="Player.h" />
