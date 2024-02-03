@@ -16,75 +16,81 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameMain.cpp">
+    <ClCompile Include="game_main.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="EvilPumpkin.cpp">
+    <ClCompile Include="evil_pumpkin.cpp">
       <Filter>Sources\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
+    <ClCompile Include="game_object.cpp">
       <Filter>Sources\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="player.cpp">
       <Filter>Sources\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Pumpkin.cpp">
+    <ClCompile Include="pumpkin.cpp">
       <Filter>Sources\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="GameSettings.cpp">
+    <ClCompile Include="game_settings.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="MovableGameObject.cpp">
+    <ClCompile Include="movable_game_object.cpp">
       <Filter>Sources\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Water.cpp">
+    <ClCompile Include="water.cpp">
       <Filter>Sources\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="CalculationCollisions.cpp">
+    <ClCompile Include="calculation_collisions.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="BaseState.cpp">
+    <ClCompile Include="base_state.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="GameOverState.cpp">
+    <ClCompile Include="game_over_state.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="GameStateFactory.cpp">
+    <ClCompile Include="game_state_factory.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="WinState.cpp">
+    <ClCompile Include="win_state.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="MenuState.cpp">
+    <ClCompile Include="menu_state.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="SettingsState.cpp">
+    <ClCompile Include="settings_state.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="GameState.cpp">
+    <ClCompile Include="game_state.cpp">
       <Filter>Sources\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="score_state.cpp">
+      <Filter>Sources\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="score.cpp">
+      <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameSettings.h">
+    <ClInclude Include="game_settings.h">
       <Filter>Sources</Filter>
     </ClInclude>
-    <ClInclude Include="EvilPumpkin.h">
+    <ClInclude Include="evil_pumpkin.h">
       <Filter>Sources\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
+    <ClInclude Include="game_object.h">
       <Filter>Sources\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="player.h">
       <Filter>Sources\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Pumpkin.h">
+    <ClInclude Include="pumpkin.h">
       <Filter>Sources\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="MovableGameObject.h">
+    <ClInclude Include="movable_game_object.h">
       <Filter>Sources\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Water.h">
+    <ClInclude Include="water.h">
       <Filter>Sources\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
@@ -96,32 +102,41 @@
     <ClInclude Include="WaterType.h">
       <Filter>Sources\Enums</Filter>
     </ClInclude>
-    <ClInclude Include="CalculationCollisions.h">
+    <ClInclude Include="calculation_collisions.h">
       <Filter>Sources</Filter>
     </ClInclude>
-    <ClInclude Include="BaseState.h">
+    <ClInclude Include="base_state.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="GameOverState.h">
+    <ClInclude Include="game_over_state.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="GameStateFactory.h">
+    <ClInclude Include="game_state_factory.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="WinState.h">
+    <ClInclude Include="win_state.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="MenuState.h">
+    <ClInclude Include="menu_state.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="SettingsState.h">
+    <ClInclude Include="settings_state.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="GameState.h">
+    <ClInclude Include="game_state.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
     <ClInclude Include="GameSettingsBits.h">
       <Filter>Sources\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="score_state.h">
+      <Filter>Sources\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="score.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

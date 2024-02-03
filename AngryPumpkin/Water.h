@@ -1,14 +1,14 @@
 #pragma once
 
-#include "GameObject.h"
+#include "game_object.h"
 #include "WaterType.h"
 
 class Water : public GameObject
 {
 public:
-	Water(WaterType waterType, sf::Vector2f _position);
+	Water(WaterType water_type, sf::Vector2f position);
 
 private:
-	void loadTexture(WaterType waterType);
-	void initSize(WaterType waterType);
+	void LoadTexture(WaterType water_type);
+	void InitSize(WaterType water_type);
 };

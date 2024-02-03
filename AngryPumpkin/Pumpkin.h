@@ -1,9 +1,9 @@
 #pragma once
 
-#include "GameObject.h"
+#include "game_object.h"
 
 class Pumpkin : public GameObject
 {
 public:
-	Pumpkin(sf::Vector2f _position);
+	Pumpkin(sf::Vector2f position);
 };

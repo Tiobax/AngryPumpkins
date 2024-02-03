@@ -6,5 +6,6 @@ enum class State
 	GAME,
 	SETTINGS,
 	WIN,
-	GAME_OVER
+	GAME_OVER,
+	SCORE
 };

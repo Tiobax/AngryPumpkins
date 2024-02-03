@@ -1,12 +1,13 @@
-#include "Pumpkin.h"
+#include "pumpkin.h"
 
-Pumpkin::Pumpkin(sf::Vector2f _position)
+Pumpkin::Pumpkin(sf::Vector2f position)
 {
-	assert(texture.loadFromFile(GameSettings::getResourcesPath() + "Pumpkin.png"));
-	sprite.setTexture(texture);
-	initSize();
-	setSpriteSize();
-	setSpriteRelativeOrigin();
-	position = _position;
-	sprite.setPosition(position);
+	assert(texture_.loadFromFile(kResourcesPath + "Pumpkin.png"));
+	sprite_.setTexture(texture_);
+	InitSize();
+	SetSpriteSize();
+	SetSpriteRelativeOrigin();
+	position_ = position;
+	sprite_.setPosition(position_);
+	CalculateCellNumbers();
 }

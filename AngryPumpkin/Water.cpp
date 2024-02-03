@@ -1,36 +1,36 @@
-#include "Water.h"
+#include "water.h"
 
-void Water::loadTexture(WaterType waterType)
+void Water::LoadTexture(WaterType water_type)
 {
-	if (waterType == WaterType::LONG) {
-		assert(texture.loadFromFile(GameSettings::getResourcesPath() + "LongWall.png"));
+	if (water_type == WaterType::LONG) {
+		assert(texture_.loadFromFile(kResourcesPath + "LongWall.png"));
 	}
 	else
 	{
-		assert(texture.loadFromFile(GameSettings::getResourcesPath() + "Column.png"));
+		assert(texture_.loadFromFile(kResourcesPath + "Column.png"));
 	}
 }
 
-void Water::initSize(WaterType waterType)
+void Water::InitSize(WaterType water_type)
 {
 
-	if (waterType == WaterType::LONG) {
-		size.x = GameSettings::getScreenWidth() * 0.25f;
-		size.y = GameSettings::getScreenHeight() * 0.05f;
+	if (water_type == WaterType::LONG) {
+		size_.x = GameSettings::get_screen_width() * 0.25f;
+		size_.y = GameSettings::get_screen_height() * 0.05f;
 	}
 	else
 	{
-		size.x = size.y = GameSettings::getScreenHeight() * 0.1f;
+		size_.x = size_.y = GameSettings::get_screen_height() * 0.1f;
 	}
 }
 
-Water::Water(WaterType waterType, sf::Vector2f _position)
+Water::Water(WaterType water_type, sf::Vector2f position)
 {
-	loadTexture(waterType);
-	sprite.setTexture(texture);
-	initSize(waterType);
-	setSpriteSize();
-	setSpriteRelativeOrigin();
-	position = _position;
-	sprite.setPosition(position);
+	LoadTexture(water_type);
+	sprite_.setTexture(texture_);
+	InitSize(water_type);
+	SetSpriteSize();
+	SetSpriteRelativeOrigin();
+	position_ = position;
+	sprite_.setPosition(position_);
 }

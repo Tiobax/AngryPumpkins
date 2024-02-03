@@ -1,58 +1,59 @@
-#include "Player.h"
+#include "player.h"
 
-void Player::changeDirection()
+void Player::ChangeDirection()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		direction = Direction::RIGHT;
+		direction_ = Direction::RIGHT;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		direction = Direction::UP;
+		direction_ = Direction::UP;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		direction = Direction::LEFT;
+		direction_ = Direction::LEFT;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		direction = Direction::DOWN;
+		direction_ = Direction::DOWN;
 	}
 }
 
-void Player::handlingPumpkinCollision()
+void Player::HandlingPumpkinCollision()
 {
-	eatSound.play();
-	GameSettings::increaseGameScore();
-	if (GameSettings::getNumberOfApplesForWinSetting() && GameSettings::isWin())
+	eat_sound_.play();
+	GameSettings::IncreaseGameScore();
+	if (GameSettings::ReceiveNumberOfApplesForWinSetting() && GameSettings::IsWin())
 	{
-		GameSettings::setWinStatus(true);
+		GameSettings::set_win_status(true);
 	}
-	if (GameSettings::getAccelerationPlayerSetting()) {
-		increaseSpeed();
+	if (GameSettings::ReceiveAccelerationPlayerSetting()) {
+		IncreaseSpeed();
 	}
 }
 
-void Player::handlingWallCollision()
+void Player::HandlingWallCollision()
 {
-	GameSettings::setGameOverStatus(true);
+	GameSettings::set_game_over_status(true);
 }
 
-void Player::handlingBorderCollision()
+void Player::HandlingBorderCollision()
 {
-	GameSettings::setGameOverStatus(true);
+	GameSettings::set_game_over_status(true);
 }
 
 Player::Player()
 {
-	assert(textureUp.loadFromFile(GameSettings::getResourcesPath() + "PlayerUp.png"));
-	assert(textureDown.loadFromFile(GameSettings::getResourcesPath() + "PlayerDown.png"));
-	assert(textureRight.loadFromFile(GameSettings::getResourcesPath() + "PlayerRight.png"));
-	assert(textureLeft.loadFromFile(GameSettings::getResourcesPath() + "PlayerLeft.png"));
-	setTextureForSprite();
-	initSize();
-	setSpriteSize();
-	setSpriteRelativeOrigin();
-	position = sf::Vector2f(GameSettings::getHalfGameScreenWidth(), GameSettings::getHalfGameScreenHeight());
-	sprite.setPosition(position);
+	assert(texture_up_.loadFromFile(kResourcesPath + "PlayerUp.png"));
+	assert(texture_down_.loadFromFile(kResourcesPath + "PlayerDown.png"));
+	assert(texture_right_.loadFromFile(kResourcesPath + "PlayerRight.png"));
+	assert(texture_left_.loadFromFile(kResourcesPath + "PlayerLeft.png"));
+	SetTextureForSprite();
+	InitSize();
+	SetSpriteSize();
+	SetSpriteRelativeOrigin();
+	position_ = sf::Vector2f(GameSettings::ReceiveHalfGameScreenWidth(), GameSettings::ReceiveHalfGameScreenHeight());
+	sprite_.setPosition(position_);
+	CalculateCellNumbers();
 }
