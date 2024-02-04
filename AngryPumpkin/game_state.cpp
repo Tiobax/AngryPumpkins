@@ -39,8 +39,8 @@ GameState::GameState()
 	const int pumpcins_count = GameSettings::ReceiveNumberOfPumpkinsSetting() ? GameSettings::GenerateNumberOfPumpkins() : GameSettings::get_pumpkins_count();
 	for (size_t i = 0; i < 16; i++)
 	{
-		std::set<std::shared_ptr<GameObject>> set;
-		pumpkins_grid_.insert(std::pair<int, std::set<std::shared_ptr<GameObject>>>(i, set));
+		std::unordered_set<std::shared_ptr<GameObject>> set;
+		pumpkins_grid_.insert(std::pair<int, std::unordered_set<std::shared_ptr<GameObject>>>(i, set));
 	}
 
 	for (size_t i = 0; i < pumpcins_count; i++)
@@ -139,12 +139,12 @@ std::vector<std::shared_ptr<GameObject>> GameState::get_obstacles()
 	return obstacles_;
 }
 
-std::map<int, std::set<std::shared_ptr<GameObject>>> GameState::get_pumpkins_grid()
+std::unordered_map<int, std::unordered_set<std::shared_ptr<GameObject>>> GameState::get_pumpkins_grid()
 {
 	return pumpkins_grid_;
 }
 
-std::set<std::shared_ptr<GameObject>> GameState::get_pumpkins_set_by_key(int key)
+std::unordered_set<std::shared_ptr<GameObject>> GameState::get_pumpkins_set_by_key(int key)
 {
 	return pumpkins_grid_.find(key)->second;
 }

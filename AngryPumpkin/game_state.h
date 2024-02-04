@@ -1,6 +1,8 @@
 #pragma once
 #include "base_state.h"
 #include "movable_game_object.h"
+#include <unordered_set>
+#include <unordered_map>
 
 class GameState : public BaseState
 {
@@ -12,8 +14,8 @@ public:
 	std::vector<std::shared_ptr<MovableGameObject>> get_enemies();
 	std::vector<std::shared_ptr<GameObject>> get_pumpkins();
 	std::vector<std::shared_ptr<GameObject>> get_obstacles();
-	std::map<int, std::set<std::shared_ptr<GameObject>>> get_pumpkins_grid();
-	std::set<std::shared_ptr<GameObject>> get_pumpkins_set_by_key(int key);
+	std::unordered_map<int, std::unordered_set<std::shared_ptr<GameObject>>> get_pumpkins_grid();
+	std::unordered_set<std::shared_ptr<GameObject>> get_pumpkins_set_by_key(int key);
 	sf::Vector2f GenerateNewPosition();
 	void EraseElementFromPumpkinsGrid(int key, std::shared_ptr<GameObject> element);
 	void InsertElementFromPumpkinsGrid(int key, std::shared_ptr<GameObject> element);
@@ -23,7 +25,7 @@ protected:
 	std::vector<std::shared_ptr<MovableGameObject>> enemies_;
 	std::vector<std::shared_ptr<GameObject>> pumpkins_;
 	std::vector<std::shared_ptr<GameObject>> obstacles_;
-	std::map<int, std::set<std::shared_ptr<GameObject>>> pumpkins_grid_;
+	std::unordered_map<int, std::unordered_set<std::shared_ptr<GameObject>>> pumpkins_grid_;
 	float last_time_;
 	sf::Clock game_clock_;
 	sf::RectangleShape dividing_line_;

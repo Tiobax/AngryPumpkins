@@ -1,6 +1,7 @@
 #include "game_over_state.h"
 #include "State.h"
 #include "game_state_factory.h"
+#include "calculation_collisions.h"
 
 GameOverState::GameOverState()
 {
@@ -29,14 +30,39 @@ GameOverState::GameOverState()
 		score_text_.push_back(row);
 	}
 
-	InitTextObject(hint_text_, "press ESC to continue", 50, sf::Color(19, 158, 198), sf::Vector2f(0.5f, 0.9f), true);
+	InitTextObject(menu_, "MENU", 80, sf::Color(19, 158, 198), sf::Vector2f(0.4f, 0.87f), true);
+	InitTextObject(continue_, "CONTINUE", 80, sf::Color(19, 158, 198), sf::Vector2f(0.6f, 0.87f), true);
 }
 
 void GameOverState::Update(sf::RenderWindow& window, std::shared_ptr<BaseState>& game_state)
 {
+	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+		is_left_mouse_button_pressed_ = false;
+	}
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) and !is_left_mouse_button_pressed_)
+	{
+		is_left_mouse_button_pressed_ = true;
+		sf::Vector2i mouse_position = sf::Mouse::getPosition(window);
+		if (CalculationCollisions::IsCollisionPressedMouseAndButton(mouse_position, menu_))
+		{
+			game_state = GameStateFactory::CreateGameState(State::MENU);
+		}
+		else if (CalculationCollisions::IsCollisionPressedMouseAndButton(mouse_position, continue_))
+		{
+			game_state = GameStateFactory::CreateGameState(State::GAME);
+		}
+
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		game_state = GameStateFactory::CreateGameState(State::MENU);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+	{
+		game_state = GameStateFactory::CreateGameState(State::GAME);
 	}
 }
 
@@ -53,5 +79,6 @@ void GameOverState::Draw(sf::RenderWindow& window)
 			window.draw(column);
 		}
 	}
-	window.draw(hint_text_);
+	window.draw(menu_);
+	window.draw(continue_);
 }

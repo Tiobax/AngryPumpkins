@@ -10,7 +10,8 @@ public:
 
 protected:
 	sf::Text game_over_text_;
-	sf::Text hint_text_;
+	sf::Text menu_;
+	sf::Text continue_;
 	sf::Text rank_title_text_;
 	sf::Text name_title_text_;
 	sf::Text score_title_text_;
